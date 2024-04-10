@@ -1,5 +1,6 @@
-package com.airgear.model.email;
+package com.airgear.model;
 
+import com.airgear.model.EmailMessage;
 import lombok.Getter;
 import lombok.Setter;
 

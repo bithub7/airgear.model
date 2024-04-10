@@ -7,26 +7,21 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Size;
-import java.util.List;
 
 @Data
-@Entity
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
-@Table(name = "complaint_category")
-public class ComplaintCategory {
+@Entity
+@Table(name = "category")
+public class Category {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Integer id;
 
     @Column(name = "name")
     @NotBlank(message = "Name cannot be blank")
-    @Size(min = 3, max = 100, message = "Name length must be between 3 and 100 characters")
     private String name;
 
-    @OneToMany(mappedBy = "complaintCategory")
-    private List<Complaint> complaints;
 }

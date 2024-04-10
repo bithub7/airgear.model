@@ -1,6 +1,5 @@
 package com.airgear.model;
 
-import com.airgear.model.goods.Goods;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -28,17 +27,15 @@ public class RentalAgreement {
 
     @NotNull(message = "First date cannot be null")
     private OffsetDateTime firstdate;
+
     @NotNull(message = "Last date cannot be null")
     private OffsetDateTime lastdate;
 
     private Goods goods;
     private String goal;
-
     private double rentalprice;
     private String lessordocument;
     private String renterdocument;
     private String lessorphone;
     private String renterphone;
-
-
 }

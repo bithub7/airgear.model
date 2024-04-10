@@ -1,11 +1,7 @@
 package com.airgear.model;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-import com.airgear.model.goods.Goods;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
-import lombok.experimental.SuperBuilder;
+import lombok.*;
+import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
@@ -15,7 +11,8 @@ import java.time.OffsetDateTime;
 @Data
 @Entity
 @NoArgsConstructor
-@SuperBuilder
+@AllArgsConstructor
+@Builder
 @ToString
 public class Complaint {
 
@@ -40,8 +37,8 @@ public class Complaint {
     @Size(min = 10, max = 1000, message = "Description length must be between 10 and 1000 characters")
     private String description;
 
-    @Column
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
+    @CreationTimestamp
+    @Column(name = "created_at", nullable = false, updatable = false)
     private OffsetDateTime createdAt;
 
 }

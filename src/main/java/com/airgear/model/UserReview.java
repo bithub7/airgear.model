@@ -7,8 +7,7 @@ import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
-import javax.validation.constraints.Max;
-import javax.validation.constraints.Min;
+import javax.validation.constraints.Size;
 import java.time.OffsetDateTime;
 
 @Data
@@ -31,9 +30,8 @@ public class UserReview {
     @JoinColumn(name = "reviewed_user_id", referencedColumnName = "id")
     private User reviewedUser;
 
-    @Min(1)
-    @Max(5)
     @Column(name = "rating")
+    @Size(min = 1, max = 10, message = "Rating must be between 1 and 10")
     private int rating;
 
     @Column(name = "comment")
