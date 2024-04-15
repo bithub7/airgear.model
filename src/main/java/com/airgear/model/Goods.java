@@ -39,9 +39,9 @@ public class Goods {
     private String description;
 
     @NotNull(message = "Price cannot be null")
-    private BigDecimal price;
+    private Price price;
 
-    private BigDecimal weekendsPrice;
+    private WeekendsPrice weekendsPrice;
 
     @ManyToOne
     @JoinColumn(name = "location_id")
