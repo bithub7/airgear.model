@@ -69,8 +69,7 @@ public class User {
     private List<Complaint> complaints;
 
     @Column(name = "rating")
-    @Size(min = 1, max = 10, message = "Rating must be between 1 and 10")
-    private Long rating;
+    private Float rating;
 
     @Column(name = "is_potentially_scam", nullable = false)
     @JsonIgnore
