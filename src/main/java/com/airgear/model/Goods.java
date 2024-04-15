@@ -1,8 +1,12 @@
 package com.airgear.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.airgear.entity.Deposit;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import com.fasterxml.jackson.annotation.*;
 import lombok.*;
 
 import javax.persistence.*;
@@ -36,9 +40,11 @@ public class Goods {
     @Size(min = 10, max = 1000, message = "Description length must be between 10 and 1000 characters")
     private String description;
 
-    @NotNull(message = "Price cannot be null")
+    @Embedded
+    @NotNull(message = "price cannot be null")
     private Price price;
 
+    @Embedded
     private WeekendsPrice weekendsPrice;
 
     @ManyToOne
