@@ -1,5 +1,6 @@
-package com.airgear.model;
+package com.airgear.entity;
 
+import com.airgear.model.Goods;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

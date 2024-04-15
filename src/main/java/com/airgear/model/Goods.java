@@ -1,5 +1,6 @@
 package com.airgear.model;
 
+import com.airgear.entity.Deposit;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -64,7 +65,7 @@ public class Goods {
     private GoodsStatus status;
 
     @Pattern(regexp = "^\\+\\d{1,3}\\s?\\(?\\d{1,4}\\)?[\\s.-]?\\d{1,4}[\\s.-]?\\d{1,4}$", message = "The phone number must be in the format +380XXXXXXXXX")
-    @JoinColumn(name = "phone")
+    @Column(name = "phone_number")
     private String phoneNumber;
 
     @Column(name = "created_at", nullable = false)
