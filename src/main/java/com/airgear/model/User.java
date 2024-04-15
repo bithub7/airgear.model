@@ -2,10 +2,11 @@ package com.airgear.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.airgear.model.goods.Goods;
 import lombok.*;
+import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
+import javax.validation.constraints.Size;
 import java.time.OffsetDateTime;
 import java.util.List;
 import java.util.Set;
@@ -24,17 +25,17 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column
+    @Column(name = "email")
     private String email;
 
-    @Column
+    @Column(name = "password")
     @JsonIgnore
     private String password;
 
-    @Column
+    @Column(name = "phone")
     private String phone;
 
-    @Column
+    @Column(name = "name")
     private String name;
 
     @Enumerated(EnumType.STRING)
@@ -47,7 +48,8 @@ public class User {
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Set<Goods> goods;
 
-    @Column(name = "created_at", nullable = false)
+    @CreationTimestamp
+    @Column(name = "created_at", nullable = false, updatable = false)
     private OffsetDateTime createdAt;
 
     @Column(name = "deleted_at")
@@ -66,7 +68,8 @@ public class User {
     @OneToMany(mappedBy = "user")
     private List<Complaint> complaints;
 
-    @Column
+    @Column(name = "rating")
+    @Size(min = 1, max = 10, message = "Rating must be between 1 and 10")
     private Float rating;
 
     @Column(name = "is_potentially_scam", nullable = false)

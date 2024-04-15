@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 import java.time.OffsetDateTime;
 
@@ -22,10 +23,13 @@ public class Feedback {
     @JoinColumn(name = "user_id")
     private User user;
 
-    @Size(max = 255)
+    @Column(name = "title")
+    @NotBlank(message = "Title cannot be blank")
+    @Size(min = 10, max = 255, message = "Description length must be between 10 and 1000 characters")
     private String title;
 
-    @Size(max = 1000)
+    @Column(name = "message")
+    @Size(min = 10, max = 1000, message = "Description length must be between 10 and 1000 characters")
     private String message;
 
     @CreationTimestamp

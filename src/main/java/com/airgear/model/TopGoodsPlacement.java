@@ -1,5 +1,6 @@
-package com.airgear.model.goods;
+package com.airgear.model;
 
+import com.airgear.model.Goods;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
@@ -17,6 +18,7 @@ import java.time.OffsetDateTime;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@Table(name = "top_goods_placement")
 public class TopGoodsPlacement {
 
     @Id

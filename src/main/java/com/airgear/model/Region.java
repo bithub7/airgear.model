@@ -1,4 +1,4 @@
-package com.airgear.model.goods;
+package com.airgear.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,17 +9,16 @@ import javax.persistence.*;
 
 @Data
 @Builder
+@Entity
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity
-@Table(name = "category")
-public class Category {
+public class Region {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Long id;
 
-    @Column(nullable = false)
-    private String name;
+    @Column(name = "region")
+    private String region;
 
 }

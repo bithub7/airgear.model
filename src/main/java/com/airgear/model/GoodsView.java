@@ -1,11 +1,10 @@
 package com.airgear.model;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.airgear.model.goods.Goods;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
 import java.time.OffsetDateTime;
@@ -15,20 +14,21 @@ import java.time.OffsetDateTime;
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
+@Table(name = "goods_view")
 public class GoodsView {
 
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private long id;
 
-    @Column
+    @Column(name = "user_id")
     private long userId;
 
-    @Column
+    @Column(name = "ip")
     private String ip;
 
-    @Column(name = "created_at", nullable = false)
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
+    @CreationTimestamp
+    @Column(name = "created_at", nullable = false, updatable = false)
     private OffsetDateTime createdAt;
 
     @JsonIgnore
@@ -36,11 +36,4 @@ public class GoodsView {
     @JoinColumn(name = "goods_id")
     private Goods goods;
 
-
-    public GoodsView(long userId, String ip, OffsetDateTime createdAt, Goods goods) {
-        this.userId = userId;
-        this.ip = ip;
-        this.createdAt = createdAt;
-        this.goods = goods;
-    }
 }

@@ -1,6 +1,6 @@
-package com.airgear.model.location;
+package com.airgear.model;
 
-import com.airgear.model.region.Region;
+import com.airgear.model.Region;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

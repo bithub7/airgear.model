@@ -1,15 +1,9 @@
-package com.airgear.model.goods;
+package com.airgear.model;
 
+import com.airgear.entity.Deposit;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.airgear.model.Complaint;
-import com.airgear.model.GoodsView;
-import com.airgear.model.User;
-import com.airgear.model.goods.enums.GoodsCondition;
-import com.airgear.model.goods.enums.GoodsStatus;
-import com.airgear.model.goods.enums.GoodsVerificationStatus;
-import com.airgear.model.location.Location;
 import lombok.*;
 
 import javax.persistence.*;
@@ -71,7 +65,7 @@ public class Goods {
     private GoodsStatus status;
 
     @Pattern(regexp = "^\\+\\d{1,3}\\s?\\(?\\d{1,4}\\)?[\\s.-]?\\d{1,4}[\\s.-]?\\d{1,4}$", message = "The phone number must be in the format +380XXXXXXXXX")
-    @JoinColumn(name = "phone")
+    @Column(name = "phone_number")
     private String phoneNumber;
 
     @Column(name = "created_at", nullable = false)

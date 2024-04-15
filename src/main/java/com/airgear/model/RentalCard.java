@@ -1,11 +1,11 @@
 package com.airgear.model;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.airgear.model.goods.Goods;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -18,13 +18,15 @@ import java.time.temporal.ChronoUnit;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@Table(name = "rental_card")
 public class RentalCard {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column(name = "created_at", nullable = false)
+    @CreationTimestamp
+    @Column(name = "created_at", nullable = false, updatable = false)
     private OffsetDateTime createdAt;
 
     @ManyToOne
@@ -47,9 +49,9 @@ public class RentalCard {
     @JsonInclude(JsonInclude.Include.NON_NULL)
     private ChronoUnit duration;
 
+    @Column(name = "quantity")
     @JsonInclude(JsonInclude.Include.NON_NULL)
-    private  Long quantity;
-
+    private Long quantity;
 
     @ManyToOne
     @JoinColumn(name = "goods_id", nullable = false)
@@ -59,9 +61,11 @@ public class RentalCard {
     @JsonInclude(JsonInclude.Include.NON_NULL)
     private BigDecimal rentalPrice;
 
+    @Column(name = "fine")
     @JsonInclude(JsonInclude.Include.NON_NULL)
     private BigDecimal fine;
 
+    @Column(name = "description")
     @JsonInclude(JsonInclude.Include.NON_NULL)
     private String description;
 
