@@ -70,7 +70,7 @@ public class User {
 
     @Column(name = "rating")
     @Size(min = 1, max = 10, message = "Rating must be between 1 and 10")
-    private Float rating;
+    private Long rating;
 
     @Column(name = "is_potentially_scam", nullable = false)
     @JsonIgnore
