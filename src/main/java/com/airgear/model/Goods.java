@@ -1,6 +1,5 @@
 package com.airgear.model;
 
-import com.airgear.entity.Deposit;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -11,7 +10,6 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
-import java.math.BigDecimal;
 import java.time.OffsetDateTime;
 import java.util.List;
 import java.util.Set;
