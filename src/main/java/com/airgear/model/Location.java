@@ -26,7 +26,7 @@ public class Location {
     @JoinColumn(name = "region_id", nullable = false)
     private Region region;
 
-    @Column(unique = true)
+    @Column(name = "unique_settlement_id", unique = true)
     private Integer uniqueSettlementID;
 
     @Enumerated(EnumType.STRING)
