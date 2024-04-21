@@ -26,6 +26,12 @@ public class Location {
     @JoinColumn(name = "region_id", nullable = false)
     private Region region;
 
+    @Column(name = "unique_settlement_id", unique = true)
+    private Integer uniqueSettlementID;
+
+    @Enumerated(EnumType.STRING)
+    private SettlementType settlementType;
+
     public Location(String settlement, Region region) {
         this.settlement = settlement;
         this.region = region;
