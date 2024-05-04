@@ -108,5 +108,7 @@ public class Goods {
     private GoodsCondition goodsCondition;
 
     @ElementCollection
+    @CollectionTable(name = "goods_image_ids", joinColumns = @JoinColumn(name = "goods_id"))
+    @Column(name = "image_id")
     private List<String> imageIds;
 }
