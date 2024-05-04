@@ -106,4 +106,7 @@ public class Goods {
 
     @Enumerated(EnumType.STRING)
     private GoodsCondition goodsCondition;
+
+    @ElementCollection
+    private List<String> imageIds;
 }
