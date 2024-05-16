@@ -10,20 +10,16 @@ import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import java.math.BigDecimal;
 
+
 @Embeddable
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class WeekendsPrice {
+public class Deposit {
+    @Column(name = "deposit_amount")
+    private BigDecimal depositAmount;
 
-    @Column(name = "weekends_price_amount")
-    private BigDecimal weekendsPriceAmount;
-
-    @Column(name = "weekends_price_currency")
     @Enumerated(EnumType.STRING)
-    private Currency weekendsPriceCurrency;
-
-    @Column(name = "weekends_price_type")
-    @Enumerated(EnumType.STRING)
-    private PriceType weekendsPriceType;
+    @Column(name = "deposit_currency")
+    private Currency depositCurrency;
 }
