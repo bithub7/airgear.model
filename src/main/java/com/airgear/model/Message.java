@@ -32,7 +32,7 @@ public class Message {
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
-    @JoinColumn(name = "send_at")
+    @JoinColumn(name = "sent_at")
     private OffsetDateTime sentAt;
 
     public Message(String text, Goods goods,
